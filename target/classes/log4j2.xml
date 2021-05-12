@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+	<appenders>
+
+		<!--这个输出控制台的配置 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %msg%xEx%n" />
+		</Console>
+
+		<!--文件打印所有信息，log每次运行自动清空，append="false" -->
+		<File name="LogFile" fileName="log/Autolog.log" append="false">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %msg%xEx%n" />
+		</File>
+
+		<!--打印所有信息，大小超过size，size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩 -->
+		<RollingFile name="RollingFie" fileName="log/Autologs.log"
+			filePattern="target/log/$${date:yyyy-MM}/Autologs-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %msg%xEx%n" />
+			<SizeBasedTriggeringPolicy size="50MB" />
+		</RollingFile>
+
+	</appenders>
+
+	<loggers>
+		<!-- 定义某个包下所有类，或某个类在控制台输出，不写入文件。 -->
+		<logger name="com.autotest.shuyun.test.Test" level="info"
+			additivity="false">
+			<appender-ref ref="Console" />
+		</logger>
+		<!--定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+		<root level="info">
+			<appender-ref ref="Console" />
+			<appender-ref ref="LogFile" />
+			<appender-ref ref="RollingFie" />
+		</root>
+	</loggers>
+</configuration>

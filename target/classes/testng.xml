@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite configfailurepolicy="continue" name="autoTest" parallel="false">
+    <test name="mooc">
+        <classes name="moocTest">
+            <class name="TestCase.MoocTestCase"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+</suite>

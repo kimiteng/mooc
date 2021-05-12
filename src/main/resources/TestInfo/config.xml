@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GBK"?>
+<configs>
+    <config name = "CRMEnv"              value = "xtty"    />
+    <config name = "PubCompDemoEnv"      value = "Test"    />
+    <config name = "Browser"             value = "CHROME"  />
+    <config name = "ElementTimeOut"      value = "30"      />
+    <config name = "SleepTime"           value = "3000"    />
+    <config name = "DriverTimeOut"       value = "60"      />
+    <config name = "RunMode"             value = "local"   />
+    <config name = "BrowserMode"         value = "gui"     />
+</configs>
